@@ -102,4 +102,5 @@
 >> "deified".palindrome?
 => true
 
+# "Symbols are labels, like strings without any additional structure."
 
