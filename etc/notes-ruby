@@ -1,0 +1,105 @@
+
+# ! after a method applies method to variable directly (mutation)
+>> arr = ["val0", "val1", "val2", "val3", "val4"]
+>> arr.reverse
+=> ["val4", "val3", "val2", "val1", "val0"]
+>> arr
+=> ["val0", "val1", "val2", "val3", "val4"]
+>> arr.reverse!
+=> ["val4", "val3", "val2", "val1", "val0"]
+>> arr
+=> ["val4", "val3", "val2", "val1", "val0"]
+
+>> arr[0..2]															# arr index selection with a range
+=> ["val4", "val3", "val2"]
+
+>> arr.push("val-1") == arr << "val-1"
+>> arr << "new val" << "second new val"		# chaining array pushes
+
+>> a = %w[foo bar baz quux]								# Use %w to make a string array.
+=> ["foo", "bar", "baz", "quux"]
+
+>> a = (0..9).to_a
+>> a[2..-1]																# Use the index -1 trick.
+=> [2, 3, 4, 5, 6, 7, 8, 9]
+
+# Ranges also work with characters:
+>> ('a'..'e').to_a
+=> ["a", "b", "c", "d", "e"]
+
+# Using the map method:
+>> 3.times { puts "Betelgeuse!" }   # 3.times takes a block with no variables.
+"Betelgeuse!"
+"Betelgeuse!"
+"Betelgeuse!"
+=> 3
+>> (1..5).map { |i| i**2 }          # The ** notation is for 'power'.
+=> [1, 4, 9, 16, 25]
+>> %w[a b c]                        # Recall that %w makes string arrays.
+=> ["a", "b", "c"]
+>> %w[a b c].map { |char| char.upcase }
+=> ["A", "B", "C"]
+>> %w[A B C].map { |char| char.downcase }
+=> ["a", "b", "c"]
+
+# "symbol-to-proc":
+>> %w[A B C].map { |char| char.downcase }
+=> ["a", "b", "c"]
+>> %w[A B C].map(&:downcase)
+=> ["a", "b", "c"]
+
+# "hashrocket":
+>> user = { "first_name" => "Michael", "last_name" => "Hartl" }
+=> {"last_name"=>"Hartl", "first_name"=>"Michael"}
+
+# hash keys are typically symbols:
+>> user = { :name => "Michael Hartl", :email => "michael@example.com" }
+=> {:name=>"Michael Hartl", :email=>"michael@example.com"}
+>> user[:name]              # Access the value corresponding to :name.
+=> "Michael Hartl"
+>> user[:password]          # Access the value of an undefined key.
+=> nil
+
+# Because it’s so common for hashes to use symbols as keys,
+# as of version 1.9 Ruby supports a new syntax just for this special case:
+>> h1 = { :name => "Michael Hartl", :email => "michael@example.com" }
+=> {:name=>"Michael Hartl", :email=>"michael@example.com"}
+>> h2 = { name: "Michael Hartl", email: "michael@example.com" }
+=> {:name=>"Michael Hartl", :email=>"michael@example.com"}
+>> h1 == h2
+=> true
+# "The bottom line is that :name => and name: are effectively the same
+#  only inside literal hashes"
+
+# "inspect" returns a string with a literal representation of the object it’s called on:
+>> puts (1..5).to_a            # Put an array as a string.
+=> 1
+=> 2
+=> 3
+=> 4
+=> 5
+>> puts (1..5).to_a.inspect    # Put a literal array.
+=> [1, 2, 3, 4, 5]
+>> puts :name, :name.inspect
+=> name
+=> :name
+>> puts "It worked!", "It worked!".inspect
+=> It worked!
+=> "It worked!"
+
+# By the way, using inspect to print an object is common enough that there’s a shortcut for it, the p function:
+>> p :name             # Same output as 'puts :name.inspect'
+=> :name
+
+# Ruby classes can be opened and modified, allowing ordinary mortals such as ourselves to add methods to them:
+>> class String
+>>   # Returns true if the string is its own reverse.
+>>   def palindrome?
+>>     self == self.reverse
+>>   end
+>> end
+=> nil
+>> "deified".palindrome?
+=> true
+
+

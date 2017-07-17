@@ -7,3 +7,13 @@ test "should ..." do
 	get ...
 	assert_select "element", "inner html"
 end
+
+# blank? method, added by Rails:
+>> "".blank?
+=> true
+>> "      ".empty?
+=> false
+>> "      ".blank?
+=> true
+>> nil.blank?
+=> true
