@@ -1,0 +1,9 @@
+
+# set variable/label in view, great for dynamic content:
+<% provide(:name, "value") %>
+
+# test if dom element exists and has certain inner html:
+test "should ..." do
+	get ...
+	assert_select "element", "inner html"
+end
