@@ -17,3 +17,7 @@ end
 => true
 >> nil.blank?
 => true
+
+# in model:
+has_secure_password  # requires 'bcrypt' gem
+# generates password_digest (hash) in database for model
