@@ -28,3 +28,6 @@ debugger
 # ... to action in controller to get start byebug in server console
 # provides interactive access to request variables and the like
 
+# reset database with rails:
+rails db:migrate:reset
+
