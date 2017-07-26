@@ -31,3 +31,14 @@ debugger
 # reset database with rails:
 rails db:migrate:reset
 
+# use secure SSL in production:
+# uncomment 'config.force_ssl = true' in file config/environments/production.rb
+# SSl will have to be enabled (via purchased certificate) on production server
+# heroku does this automatically and for free due to its SSL certificate
+# "If you want to run SSL on a custom domain, such as www.example.com, refer to Heroku’s documentation on SSL.":
+# http://devcenter.heroku.com/articles/ssl
+
+# using puma as webserver for services that don't do this by default:
+# https://www.railstutorial.org/book/sign_up#code-production_webserver_config
+# https://devcenter.heroku.com/articles/deploying-rails-applications-with-the-puma-web-server
+
