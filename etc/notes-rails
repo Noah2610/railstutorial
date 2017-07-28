@@ -1,4 +1,10 @@
 
+# basic rails conventions:
+rails generate controller Names
+#                             ^ controller names are plural
+rails generate model Name
+#                        ^ model names are singular
+
 # set variable/label in view, great for dynamic content:
 <% provide(:name, "value") %>
 
