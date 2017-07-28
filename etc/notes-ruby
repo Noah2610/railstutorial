@@ -104,3 +104,20 @@
 
 # "Symbols are labels, like strings without any additional structure."
 
+# "or equals":
+>> @foo
+=> nil
+>> @foo = @foo || "bar"
+=> "bar"
+>> @foo = @foo || "baz"
+=> "bar"
+---
+>> @foo
+=> nil
+>> @foo ||= "bar"
+=> "bar"
+>> @foo ||= "baz"
+=> "bar"
+>> @foo
+=> "bar"
+
