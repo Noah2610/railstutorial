@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
 		if (@user) && (@user.authenticate(params[:session][:password]))
 			log_in @user
 			params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
-			flash[:success] = "Logged in successfully!"
 			redirect_to @user  # rails automatically converts this to user_url(user)
 		else
 			flash.now[:danger] = "Invalid email / password combination."

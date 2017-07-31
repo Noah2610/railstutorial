@@ -11,8 +11,8 @@ class User < ApplicationRecord
 		format: { with: VALID_EMAIL_REGEX },
 		uniqueness: { case_sensitive: false }
 
+	validates :password, presence: true, length: { minimum: 4 } #, allow_nil: true  # allows empty passwords on profile edit
 	has_secure_password
-	validates :password, presence: true, length: { minimum: 4 }
 
 	# Returns the hash digest of the given string:
 	def User.digest(string)
