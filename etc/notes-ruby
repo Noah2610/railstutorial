@@ -121,3 +121,10 @@
 >> @foo
 => "bar"
 
+# if value is true then it is assigned to val and if block executes
+am_i_true = true
+if (val = am_i_true)
+	puts "#{val} is true!"
+	# => true is true
+end
+
