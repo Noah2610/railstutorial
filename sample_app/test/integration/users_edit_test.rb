@@ -17,7 +17,11 @@ class UsersEditTest < ActionDispatch::IntegrationTest
 		assert_select 'div#error_explanation ul li', count: 4
 	end
 
-	test "successful edit" do
+	test "successful edit with friendly forwarding" do
+		get edit_user_path(@user)
+		log_in_as(@user)
+		assert_redirected_to edit_user_url(@user)
+		assert session[:forwarding_url].nil?
 		log_in_as @user
 		get edit_user_path(@user)
 		assert_template 'users/edit'
