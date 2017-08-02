@@ -78,3 +78,6 @@ default_scope -> { order(created_at: :desc) }
 # in model:
 has_many :model, dependent: :destroy
 
+# this is pretty neat:
+time_ago_in_words(1337.days.ago)
+
