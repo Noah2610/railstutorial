@@ -55,3 +55,26 @@ rails db:migrate:reset
 #  _user.html.erb partial (inferring the name of the partial from the name of the
 #  class). The result is the impressively compact code in Listing 10.52."
 
+# built-in rails helper for getting current time and date taking in account the current timezone:
+Time.zone.now
+
+# "The way to set a query parameter in Rails is to include a hash in the named route:"
+edit_account_activation_url(@user.activation_token, email: @user.email)
+=> account_activations/q5lt38hQDc_959PVoo6b7A/edit?email=foo%40example.com
+
+# create url friendly string:
+CGI.escape("string !?")
+
+# set timezone:
+# config/application.rb :
+config.time_zone = "Vienna"  # "UTC", "Eastern Time (US & Canada)"
+
+# set default scope for model (useful for sorting a list of items by a specific value):
+# in model:
+default_scope -> { order(created_at: :desc) }
+# sorts itself by created_at in descending order
+
+# destroy associated model(s) if itself is destroyed
+# in model:
+has_many :model, dependent: :destroy
+
