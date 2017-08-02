@@ -81,3 +81,6 @@ has_many :model, dependent: :destroy
 # this is pretty neat:
 time_ago_in_words(1337.days.ago)
 
+# Chuck Norris facts with 'faker' gem, some are actually hilarious:
+Faker::ChuckNorris.fact
+
