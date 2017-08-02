@@ -84,3 +84,7 @@ time_ago_in_words(1337.days.ago)
 # Chuck Norris facts with 'faker' gem, some are actually hilarious:
 Faker::ChuckNorris.fact
 
+# for ActiveRecord / model associations:
+rails generate model SomeModel associatedModel_id:references
+# creates 'has_many :associated_models'
+
