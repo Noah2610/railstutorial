@@ -48,3 +48,10 @@ rails db:migrate:reset
 # https://www.railstutorial.org/book/sign_up#code-production_webserver_config
 # https://devcenter.heroku.com/articles/deploying-rails-applications-with-the-puma-web-server
 
+# when trying to render a list of models, calling render function on complete list (with apropriate existing partial):
+# "Here Rails infers that @users is a list of User objects;
+#  moreover, when called with a collection of users,
+#  Rails automatically iterates through them and renders each one with the
+#  _user.html.erb partial (inferring the name of the partial from the name of the
+#  class). The result is the impressively compact code in Listing 10.52."
+
