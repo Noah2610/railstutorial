@@ -91,3 +91,6 @@ rails generate model SomeModel associatedModel_id:references
 # rails form file selector input:
 f.file_field ...
 
+# 'validates' vs 'validate'
+# 'validates' for rails methods, 'validate' for custom methods
+
