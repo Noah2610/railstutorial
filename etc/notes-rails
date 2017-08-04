@@ -88,3 +88,6 @@ Faker::ChuckNorris.fact
 rails generate model SomeModel associatedModel_id:references
 # creates 'has_many :associated_models'
 
+# rails form file selector input:
+f.file_field ...
+
