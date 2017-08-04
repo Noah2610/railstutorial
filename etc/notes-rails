@@ -94,3 +94,9 @@ f.file_field ...
 # 'validates' vs 'validate'
 # 'validates' for rails methods, 'validate' for custom methods
 
+# 'has_many' with custom parameters:
+# example, twitter-like following/followers:
+has_many :following, through: :active_relationships, source: followed
+#        ^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^
+#		   "custom" symbol       use this model    the source of "following" array is "followed_id"s
+
