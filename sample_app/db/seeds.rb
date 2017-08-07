@@ -30,15 +30,15 @@ User.create!(	name:  "Chuck Norris",
 							admin: true )
 
 users = User.order(:created_at).take(5)
-50.times do
+50.times do |n|
 	content = Faker::Lorem.sentence(5)
-	users.each { |user| user.microposts.create!(content: content) }
+	users.each { |user| user.microposts.create!(content: content, created_at: n.minutes.ago) }
 end
 
 user = User.find_by(name: "Chuck Norris")
-60.times do
+60.times do |n|
 	content = Faker::ChuckNorris.fact.truncate(140)
-	user.microposts.create!(content: content)
+	user.microposts.create!(content: content, created_at: n.minutes.ago)
 end
 
 
