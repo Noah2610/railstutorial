@@ -40,3 +40,13 @@ user = User.find_by(name: "Chuck Norris")
 	content = Faker::ChuckNorris.fact.truncate(140)
 	user.microposts.create!(content: content)
 end
+
+
+# Following relationships
+users = User.all
+user  = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
+
